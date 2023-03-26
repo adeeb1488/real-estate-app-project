@@ -9,8 +9,8 @@ const LeftArrow = ()=>{
     return(
         <Flex justifyContent="center" alignItems="center" marginRight="1">
             <Icon 
-            as={FaArrowCircleLeft}
-            onClick={scrollPrev}
+            as={FaArrowAltCircleLeft}
+            onClick={()=>scrollPrev()}
             fontSize="2xl"
             cursor='pointer'
             />
@@ -22,15 +22,16 @@ const RightArrow = ()=>{
     return(
         <Flex justifyContent="center" alignItems="center" marginRight="1">
             <Icon 
-            as={FaArrowCircleRight}
-            onClick={scrollNext}
+            as={FaArrowAltCircleRight}
+            onClick={()=>scrollNext()}
             fontSize="2xl"
             cursor='pointer'
             />
         </Flex>
     )
 }
-const ImageScrollbar = ({data}) =>{
+function ImageScrollbar({data}) {
+    return(    
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} style={{overflow:'hidden'}}>
         {data.map((item) =>(
             <Box key={item.id}
@@ -45,6 +46,7 @@ const ImageScrollbar = ({data}) =>{
             </Box>
         ))}
     </ScrollMenu>
+    )
 }
 
 export default ImageScrollbar
